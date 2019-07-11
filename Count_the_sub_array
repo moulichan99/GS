@@ -1,0 +1,38 @@
+Case 1. p*x < k
+This means we can move the window’s right bound one step further. How many contiguous arrays does this step produce? It is: 1 + (end-start).
+
+Indeed, the element itself comprises an array, and also we can add x to all contiguous arrays which have right border at end. 
+There are as many such arrays as the length of the window.
+
+Case 2. p*x >= k
+This means we must first adjust the window’s left border so that the product is again less than k. 
+After that, we can apply the formula from Case 1.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    long long int n,k;
+	    cin>>n>>k;
+	    long long  int arr[n];
+	    for(long long  int i=0;i<n;i++){
+	        cin>>arr[i];
+	    }
+	    long long  int s=0,e=0,res=0,prod=1;
+	    for(e=0;e<n;e++){
+	        prod=prod*arr[e];
+	        while(e>s && prod>=k){
+	            prod/=arr[s++];
+	        }
+	        if(k>prod){
+	            res+=e-s+1;
+	        }
+	    }
+	    cout<<res<<endl;
+	}
+	return 0;
+}
