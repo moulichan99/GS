@@ -1,0 +1,22 @@
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+#define ll long long int
+int main()
+ {
+	//code
+	int t;cin>>t;
+	while(t--){
+	    int n;cin>>n;
+	    ll arr[n];
+	    unordered_map <ll,int> m1;
+	    for(int i=0;i<n;i++){
+	        cin>>arr[i];
+	        m1[arr[i]]++;
+	    }
+	    for(int i=0;i<n;i++){
+	        if(m1[arr[i]]==1){cout<<arr[i]<<endl;break;}
+	    }
+	}
+	return 0;
+}
