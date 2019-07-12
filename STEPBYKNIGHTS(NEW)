@@ -1,0 +1,45 @@
+using namespace std;
+int func(int srcx,int srcy,int destx,int desty,bool visited[26][26],int n)
+{
+    queue<pair<pair<int,int>,int>> q;
+    visited[srcx][srcy]=true;
+    q.push({{srcx,srcy},0});
+    int x[]={1,2,-1,-2,1,2,-1,-2};
+    int y[]={2,1,-2,-1,-2,-1,2,1};
+    while(!q.empty())
+    {
+        pair<pair<int,int>,int> p;
+        p=q.front();
+        q.pop();
+        //cout<<p.first.first<<" "<<p.first.second<<" ";
+        if(p.first.first==destx && p.first.second==desty)
+            return p.second;
+        for(int i=0;i<8;i++)
+        {
+            int nextx=p.first.first+x[i];
+            int nexty=p.first.second+y[i];
+            //cout<<nextx<<" "<<nexty<<" \n";
+            if(nextx>=1 && nextx<=n && nexty>=1 && nexty<=n && !visited[nextx][nexty])
+            {
+               // cout<<nextx<<" "<<nexty<<" ";
+                visited[nextx][nexty]=true;
+                q.push({{nextx,nexty},p.second+1});
+            }
+        }
+    }
+    return -1;
+}
+int main() {
+	//code
+	int t,n,m,srcx,srcy,destx,desty;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    cin>>srcx>>srcy>>destx>>desty;
+	    bool visited[26][26];
+	    memset(visited,false,sizeof(visited));
+	    cout<<func(srcx,srcy,destx,desty,visited,n)<<endl;
+	}
+	return 0;
+}
