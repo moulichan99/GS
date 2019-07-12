@@ -1,0 +1,32 @@
+void recur(Node* root)
+{
+    Node* tptr;
+    if(root==NULL)
+        return;
+    else
+    {
+        tptr = root->right;
+        root->right = root->left;
+        root->left = tptr;
+    }
+    recur(root->left);
+    recur(root->right);
+}
+void InorderDisplay(Node* root)
+{
+    if(root==NULL)
+        return;
+
+    InorderDisplay(root->left);
+    cout<<root->data<<" ";
+    InorderDisplay(root->right);
+
+}
+void mirror(Node* root) 
+{
+    if(root==NULL)
+        return;
+    recur(root);
+    
+    //InorderDisplay(root);   
+}
