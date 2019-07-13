@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long int n,i;
+	    cin>>n;
+	    long int a[n],b[n],flag=1;
+	    for(i=0;i<n;i++)
+	        cin>>a[i];
+	    for(i=0;i<n;i++)
+	        cin>>b[i];
+	        
+	    map<long int,long int>mp;
+	    for(i=0;i<n;i++)
+	        mp[a[i]]++;
+	    for(i=0;i<n;i++)
+	    {
+	        if(mp[b[i]]>=1)
+	            mp[b[i]]--;
+	        else
+	        {
+	            flag=0;
+	            break;
+	        }     
+	    }
+	    for(auto i:mp) // checking duplicates
+	    {
+	        if(i.second>1)
+	        {
+	           flag=0;
+	           break;
+	        }
+	            
+	    }
+	    if(flag==0)
+	        cout<<"0"<<endl;
+	    else
+	        cout<<"1"<<endl;
+	}
+	return 0;
+}
