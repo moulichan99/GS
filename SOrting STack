@@ -1,0 +1,20 @@
+void SortedStack :: sort()
+{
+stack<int>st;
+int temp;
+while(!s.empty()){
+temp=s.top();s.pop();
+while(!st.empty()&&temp>st.top()){
+s.push(st.top());
+st.pop();
+}
+st.push(temp);
+}
+while(!st.empty()){
+s.push(st.top());
+st.pop();
+}
+
+
+use temporay stack to store elements in increasing order
+traverse the full stack until its positon
