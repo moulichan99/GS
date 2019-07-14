@@ -1,0 +1,112 @@
+1) Reverse a words in string 
+
+Logic: * separate each word by space or any special character given
+       * revere the individual letter in word
+       * reverse the whole string
+
+reverse(str.begin(),str.end()) 
+
+2) Tower of Hanoi using Recursion
+
+Logic : * if it is n = 1 means we have to return ;
+        * move n-1 disks from from_rod to auxil_rod
+        * print it
+        * move n-1 disks from auxil_rod to to_rod
+
+3) Non - Repeating Elements using hashtable
+
+ Logic : * use map to remove duplicates find first distinct 
+(non -repeating elements)
+
+  use unordered_map to pair elements (when negative elements involved not arrays) to hash 
+ 
+ unordered_map <int,int> map;
+ map[a[i]]++; // In index a[i] value is intially one ,,again        occured it increases;
+
+// mp.insert({key,value});
+4) count any elemnts by sliding 
+		Rememorise 
+			Case 1. p*x < k
+This means we can move the window’s right bound one step further.
+
+Indeed, the element itself comprises an array, and also we can add x to all contiguous arrays which have right border at end. There are as many such arrays as the length of the window.
+
+Case 2. p*x >= k
+
+This means we must first adjust the window’s left border so that the product is again less than k. After that, we can apply the formula from Case 1.
+remove the first element ,remove the contributed product
+
+(* ITS ALSO APPLICABLE TO SUM *)
+
+
+5) for repeating,non_repeating,duplicates -------> use hashing 
+
+6) Mirror tree -> we have to swap both left and right subtree.
+   (recursively for each and every left and right subtree)
+
+7) Second Most Repeated use , unoredered map ,trace first max and second max 
+2 base condition
+	* number is greater than first_max then first_max = num : 	second_max = first_max 
+	* number is lesser than first_max but greater than second 	max then update second_max only
+
+8) An undirected graph is tree if it has following properties.
+	1) There is no cycle.
+	2) The graph is connected.
+
+(use dfs or bfs to check cycle is present or not)
+
+NOTE:
+
+In c++ stack <Datatype> a; // use top(),push(),pop() inbuilt functions
+
+	  list <datatype> queues  // queue.front() , queue.rear() 
+       // queue.push(), queue.pop()
+9) graph is usually represented in adjacency matrix 
+or use adjacency list 
+// array of vectors
+( vector<int> v[n])
+
+10) BFS for searching node is present or not in the graph 
+	* used for cycle detection
+	* if graph is connected or not .
+	* to find shortest path 
+11) STEPS BY KNIGHT
+	1) we use pairs in queue mostly to hold coordinates 
+        ( in this program we pair coordinates with distance )
+		queue<pair<pair<int,int>,int>> q;
+     2) access q.first.first (pair container)  
+     3) In pair we directly acces name.first...
+
+12)  Iterate over the map 
+  	    for (auto i : mp) 
+            v.push_back(i.second); 
+13)length of array is odd it not make pair so not divisible by k
+   length is even .....it sum is divisible by l
+14) Height of tree is Max(height of left subtree , height of right sub tree)
+
+15) finding the shortest path using two dimeninal array ..time complexity is high
+	so we use queue in place for array also maintain the distance table
+
+16) Convex Hull problem using Graham scan algorithm
+		* find the bottom most point (lowest y value and same 		   y value then consider smallest x value) 
+		* sort the remaining n-1 points with respect to 			  bottom point
+		* remove points forming orientation straight angle
+		* keep iterating points 
+ 			it makes left turn accept 
+			it makes right turn reject;
+
+17) deque (insert,delete at both ends)       	push_front(),push_back(),pop_front(),pop_back()
+18) Sliding window technique using queue 
+          maximum subarray ,(that kind of sums) 
+19) Cache is implemented via queue and map 
+    map stores the key and value;
+    queue dynamically allote elements 
+    if queue  size is greater
+           it removes the last referenced elemnt at q.front()
+    if you call get method ,stores the recently accessed elemnt in queue back 
+
+20) Decoding Message use dynamic approcah ( number 1 - 26)
+	compare last digit is >'0' (non zero)
+	last before digit (i-2) last digit (i-1)
+	i-2 =1 or 2 i-1(In range (0,6))  
+     update the count[i] by its count[i-1] count[i-2]
