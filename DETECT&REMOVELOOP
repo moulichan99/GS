@@ -1,0 +1,33 @@
+void removeloop(Node *tptr,Node *head)
+{
+   typedef Node* NODEPTR;
+   NODEPTR p1,p2;
+   p2 =head;
+   while(1)
+   {
+   p1 =tptr;
+   while(p1->next!=tptr&&p1->next!=p2) // where it start and end is also same 
+        p1=p1->next;
+        
+    if(p1->next==p2)
+        break;
+    p2=p2->next;                     // head is not loop then try finding another node
+   }
+   p1->next = NULL;
+}
+void removeTheLoop(Node *head)
+{
+   typedef Node* NODEPTR;
+   NODEPTR slow=head,fast=head;
+   while(slow&&fast&&fast->next)
+   {
+       slow = slow ->next;
+       fast = fast->next->next;
+       if(slow == fast )  // looped node
+       {
+           removeloop(slow,head);
+           break;
+       }
+   }
+   
+}
