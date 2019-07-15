@@ -1,0 +1,54 @@
+left shift:
+
+x << value 
+----------------------------------------------------
+x = x * 2^value (normal operation)
+
+1<<3
+0000 0001  ---> 1
+Shift by 1 bit
+0000 0010 ----> 2 which is equal to 1*2^1
+Shift By 2 bits
+0000 0100 ----> 4 which is equal to 1*2^2
+Shift by 3 bits
+0000 1000 ----> 8 which is equal to 1*2^3
+
+
+Right Shift
+x >> value (bit-wise operation)
+--------------------------------
+x = x / 2^value (normal arithmetic operation)
+
+
+8>>3
+0000 1000  ---> 8 which is equal to 8/2^0
+Shift by 1 bit
+0000 0100 ----> 4 which is equal to 8/2^1
+Shift By 2 bits
+0000 0010 ----> 2 which is equal to 8/2^2
+Shift by 3 bits
+0000 0001 ----> 1 which is equal to 8/2^3
+
+
+BINARY REPRESENATION:
+#include<bits/stdc++.h> 
+using namespace std; 
+  
+// Function to convert decimal 
+// to binary number 
+void bin(unsigned n) 
+{ 
+    if (n > 1) 
+    bin(n>>1); 
+      
+    printf("%d", n & 1); 
+} 
+  
+// Driver code 
+int main(void) 
+{ 
+    bin(131); 
+    printf("\n"); 
+    bin(3); 
+    return 0; 
+} 
